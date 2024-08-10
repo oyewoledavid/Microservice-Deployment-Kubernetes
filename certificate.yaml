@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: sock-shop-tls
+  namespace: sock-shop
+spec:
+  secretName: sock-shop-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: socks.kingdavid.me
+  dnsNames:
+  - socks.kingdavid.me
+  - grafana.kingdavid.me
+  - prometheus.kingdavid.me
