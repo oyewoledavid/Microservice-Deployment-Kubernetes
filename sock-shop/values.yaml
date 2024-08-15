@@ -1,0 +1,9 @@
+alertmanager:
+  enabled: true
+  configMapOverrideName: "alertmanager-config"
+
+prometheus:
+  prometheusSpec:
+    ruleConfigMapSelectors:
+      - matchLabels:
+          role: prometheus-rulefiles
