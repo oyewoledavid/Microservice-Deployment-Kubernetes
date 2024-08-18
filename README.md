@@ -17,6 +17,9 @@ The following need to be installed and configured before starting deployment
 The major parts of the deployment process can be automated through the use of a bash script for faster deployment and to avoid errors, however some steps need to be taken before executing the scrips, these steps are:
 - Create helm chart using the command `helm create sock-shop`, This will create an helm chart, create a manifest directory and copy all your kubernete manifest files into it.  
 - Create the `ingress.yaml`, `cluster-issuer.yaml` and `certificate.yaml` files inside the sock-shop directory
+>**NOTES:**
+>
+> Executing the commands in the bash script one after another will give the same result, i decided to use bash script for faster and to avoid errors.
 
 ### Step 1: Infrastructure Setup and Application Deployment
 Execute the first script [auto-deploy-1.sh](auto-deploy-1.sh). This script performs the following tasks:

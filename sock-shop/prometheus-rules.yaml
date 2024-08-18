@@ -14,7 +14,8 @@ data:
         expr: job:request_latency_seconds:mean5m{job="myjob"} > 0.5
         for: 10m
         labels:
-          severity: page
+          severity: critical
+          receiver: slack-notifications
         annotations:
           summary: High request latency
           description: "Request latency is over 0.5s for 10 minutes."
