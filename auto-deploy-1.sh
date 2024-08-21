@@ -2,13 +2,13 @@
 
 # Get the output values from terraform
 cd terraform
-region=$(terraform output -raw region)
-cluster_name=$(terraform output -raw cluster_name)
+
 
 # Go to terraform directory and run terraform init and terraform apply
 terraform init
 terraform apply --auto-approve
-terraform refresh
+region=$(terraform output -raw region)
+cluster_name=$(terraform output -raw cluster_name)
 
 # Get the kubeconfig file and update the kubeconfig file, this will set the context to the cluster
 aws eks update-kubeconfig --region $region --name $cluster_name
@@ -16,6 +16,7 @@ aws eks update-kubeconfig --region $region --name $cluster_name
 #create namespace and set it as the current namespace for the cluster 
 kubectl create namespace sock-shop
 kubectl config set-context --current --namespace=sock-shop
+
 ##helm create sock-shop 
 cd ../sock-shop
 helm install sock-shop .
